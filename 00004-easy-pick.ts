@@ -2,7 +2,7 @@
  * @Author: yongzhen.sun
  * @Date: 2023-02-02 10:59:55
  * @LastEditors: yongzhen.sun
- * @LastEditTime: 2023-02-02 11:26:43
+ * @LastEditTime: 2023-02-02 11:44:59
  * @Description: file content
  */
 // ============= Test Cases =============
@@ -34,6 +34,7 @@ interface Expected2 {
 // ============= Your Code Here =============
 // A extends keyof B
 // { [A in keyof B]: B[A] }
+// T K P
 type MyPick<T, K extends keyof T> = {
   [P in K]: T[P]
   // [P in keyof T]: T[P]
