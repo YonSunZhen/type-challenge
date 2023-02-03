@@ -2,7 +2,7 @@
  * @Author: yongzhen.sun
  * @Date: 2023-02-02 10:57:36
  * @LastEditors: yongzhen.sun
- * @LastEditTime: 2023-02-02 10:57:41
+ * @LastEditTime: 2023-02-03 15:00:39
  * @Description: file content
  */
 // ============= Test Cases =============
@@ -27,6 +27,11 @@ type ComplexObject = {
 const fn = (v: boolean) => v ? 1 : 2
 const fn1 = (v: boolean, w: any) => v ? 1 : 2
 
-
 // ============= Your Code Here =============
-type MyReturnType<T> = any
+type MyReturnType<T> = T extends (...args: any[]) => infer P ? P : never
+
+const testFn = <T>(a: T) => {
+  return '1'
+}
+const test: MyReturnType<typeof testFn> = '1'
+
