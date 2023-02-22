@@ -2,7 +2,7 @@
  * @Author: yongzhen.sun
  * @Date: 2023-02-02 14:52:46
  * @LastEditors: yongzhen.sun
- * @LastEditTime: 2023-02-02 14:58:37
+ * @LastEditTime: 2023-02-22 11:13:57
  * @Description: file content
  */
 // ============= Test Cases =============
@@ -24,6 +24,6 @@ type errors = [
 
 
 // ============= Your Code Here =============
-type First<T extends any[]> = T extends [] ? never : T[0]
+type First<T extends any[]> = T extends [infer Q, ...infer P] ? Q : never
 type arr = [string, 1]
 const test: First<arr> = '1'

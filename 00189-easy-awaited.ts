@@ -2,7 +2,7 @@
  * @Author: yongzhen.sun
  * @Date: 2023-02-02 17:15:38
  * @LastEditors: yongzhen.sun
- * @LastEditTime: 2023-02-03 09:16:39
+ * @LastEditTime: 2023-02-22 14:17:01
  * @Description: file content
  */
 // ============= Test Cases =============
@@ -28,6 +28,8 @@ type error = MyAwaited<number>
 
 // ============= Your Code Here =============
 // unknown 表示类型还未确定
-type MyAwaited<T extends PromiseLike<any>> = T extends PromiseLike<infer P>
-  ? P extends PromiseLike<unknown> ? MyAwaited<P> : P
-  : never
+type MyAwaited<T extends PromiseLike<any>> = 
+  T extends PromiseLike<infer P> ?  
+    P extends PromiseLike<unknown> ? 
+      MyAwaited<P> : P
+  : T

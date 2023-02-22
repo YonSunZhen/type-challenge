@@ -1,0 +1,22 @@
+/*
+ * @Author: yongzhen.sun
+ * @Date: 2023-02-22 11:19:28
+ * @LastEditors: yongzhen.sun
+ * @LastEditTime: 2023-02-22 14:15:02
+ * @Description: file content
+ */
+// ============= Test Cases =============
+import type { Equal, Expect } from './test-utils'
+
+type cases = [
+  Expect<Equal<Pop<[3, 2, 1]>, [3, 2]>>,
+  Expect<Equal<Pop<['a', 'b', 'c', 'd']>, ['a', 'b', 'c']>>,
+  Expect<Equal<Pop<[]>, []>>,
+]
+
+
+// ============= Your Code Here =============
+// 移除最后一个元素
+type Pop<T extends any[]> = T extends [] ? [] : 
+                              T extends [...infer P, infer Q] ?  
+                                P : never
